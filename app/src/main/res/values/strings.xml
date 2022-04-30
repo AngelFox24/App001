@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">App001</string>
+    <string name="title_activity_dota_profile">DotaProfile</string>
 </resources>

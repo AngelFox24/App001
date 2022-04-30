@@ -11,9 +11,9 @@ import kotlinx.coroutines.*
 class DotaProfileModel : ViewModel() {
 
     private val _dotaProfileModel = MutableLiveData<ProfileDotaModel>()
-    val dotaProfileModel: LiveData<ProfileDotaModel> = _dotaProfileModel
+    val dotaProfileModel: LiveData<ProfileDotaModel> get() = _dotaProfileModel
 
-    var getDotaProfileUseCase = GetDotaProfileUseCase()
+    var getDotaProfileUseCase = GetDotaProfileUseCase("")
 
     var job: Job? = null
 
@@ -25,5 +25,9 @@ class DotaProfileModel : ViewModel() {
                 _dotaProfileModel.value = response
             }
         }
+    }
+    override fun onCleared() {
+        super.onCleared()
+        job?.cancel()
     }
 }
