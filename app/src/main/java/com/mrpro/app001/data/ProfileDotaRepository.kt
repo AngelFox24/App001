@@ -6,7 +6,7 @@ class ProfileDotaRepository {
 
     private val api= Dota2ApiService()
 
-    suspend fun getDotaProfile(id:String): ProfileDotaModel{
+    suspend fun getDotaProfile(id:String): ProfileDotaModel?{
         val response=api.getProfileById(id)
         return response
     }
